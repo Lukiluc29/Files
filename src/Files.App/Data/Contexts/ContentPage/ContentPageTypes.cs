@@ -6,8 +6,6 @@ namespace Files.App.Data.Contexts
 	public enum ContentPageTypes : ushort
 	{
 		None,
-		Home,
-		RecycleBin,
 		Folder,
 		ZipFolder,
 		Ftp,
@@ -15,7 +13,17 @@ namespace Files.App.Data.Contexts
 		CloudDrive,
 		MtpDevice,
 		SearchResults,
+		Home,
+		RecycleBin,
 		ReleaseNotes,
 		Settings,
+		Desktop,
+		Downloads,
+		Pictures,
+		Music,
+		Videos,
+		Documents,
+		Network,
+		ThisPC,
 	}
 }

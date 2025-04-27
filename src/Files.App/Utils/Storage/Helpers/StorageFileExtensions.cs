@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using Windows.Storage;
 using Windows.Storage.Search;
+using static Vanara.PInvoke.Kernel32;
 
 namespace Files.App.Utils.Storage
 {
@@ -132,30 +133,96 @@ namespace Files.App.Utils.Storage
 			return pathBoxItems;
 		}
 
-		public static async Task<List<PathBoxItem>> GetDirectoryPathComponentsWithDisplayNameAsync(string value)
-		{
-			var pathBoxItems = GetDirectoryPathComponents(value);
+        public static async Task<List<PathBoxItem>> GetDirectoryPathComponentsWithDisplayNameAsync(string value)
+        {
+            var pathBoxItems = GetDirectoryPathComponents(value);
 
-			foreach (var item in pathBoxItems)
-			{
-				if (item.Path == "Home")
-					item.Title = Strings.Home.GetLocalizedResource();
-				if (item.Path == "ReleaseNotes")
-					item.Title = Strings.ReleaseNotes.GetLocalizedResource();
-				// TODO add settings page
-				//if (item.Path == "Settings")
-				//	item.Title = Strings.Settings.GetLocalizedResource();
-				else
-				{
-					BaseStorageFolder folder = await FilesystemTasks.Wrap(() => DangerousGetFolderFromPathAsync(item.Path));
+            foreach (var item in pathBoxItems)
+            {
+                var path = item.Path; // Fix: Declare and assign 'path' variable from 'item.Path'
 
-					if (!string.IsNullOrEmpty(folder?.DisplayName))
-						item.Title = folder.DisplayName;
-				}
-			}
+                if (path.StartsWith("Home"))
+                {
+                    item.Title = "Home"; // Fix: Assign the title to the item
+                    continue;
+                }
 
-			return pathBoxItems;
-		}
+                if (path.StartsWith("RecycleBin"))
+                {
+                    item.Title = "RecycleBin";
+                    continue;
+                }
+
+                if (path.StartsWith("ReleaseNotes"))
+                {
+                    item.Title = "ReleaseNotes";
+                    continue;
+                }
+
+                if (path.StartsWith("Settings"))
+                {
+                    item.Title = "Settings";
+                    continue;
+                }
+
+                if (path.StartsWith("Desktop"))
+                {
+                    item.Title = "Desktop";
+                    continue;
+                }
+
+                if (path.StartsWith("Downloads"))
+                {
+                    item.Title = "Downloads";
+                    continue;
+                }
+
+                if (path.StartsWith("Pictures"))
+                {
+                    item.Title = "Pictures";
+                    continue;
+                }
+
+                if (path.StartsWith("Music"))
+                {
+                    item.Title = "Music";
+                    continue;
+                }
+
+                if (path.StartsWith("Videos"))
+                {
+                    item.Title = "Videos";
+                    continue;
+                }
+
+                if (path.StartsWith("Documents"))
+                {
+                    item.Title = "Documents";
+                    continue;
+                }
+
+                if (path.StartsWith("NetworkFolder"))
+                {
+                    item.Title = "Network";
+                    continue;
+                }
+
+                if (path.StartsWith("MyComputer"))
+                {
+                    item.Title = "ThisPC";
+                    continue;
+                }
+                else
+                {
+                    BaseStorageFolder folder = await FilesystemTasks.Wrap(() => DangerousGetFolderFromPathAsync(item.Path));
+
+                    if (!string.IsNullOrEmpty(folder?.DisplayName))
+                        item.Title = folder.DisplayName;
+                }
+            }
+
+            return pathBoxItems;
+        }
 
 		public static string GetResolvedPath(string path, bool isFtp)
 		{

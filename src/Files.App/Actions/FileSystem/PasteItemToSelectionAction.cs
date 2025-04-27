@@ -47,7 +47,7 @@ namespace Files.App.Actions
 			if (!App.AppModel.IsPasteEnabled)
 				return false;
 
-			if (context.PageType is ContentPageTypes.Home or ContentPageTypes.RecycleBin or ContentPageTypes.SearchResults or ContentPageTypes.ReleaseNotes or ContentPageTypes.Settings)
+			if (context.PageType is ContentPageTypes.SearchResults or ContentPageTypes.Home or ContentPageTypes.RecycleBin or ContentPageTypes.ReleaseNotes or ContentPageTypes.Settings or ContentPageTypes.Desktop or ContentPageTypes.Downloads or ContentPageTypes.Pictures or ContentPageTypes.Music or ContentPageTypes.Videos or ContentPageTypes.Documents or ContentPageTypes.Network or ContentPageTypes.ThisPC)
 				return false;
 
 			if (!context.HasSelection)

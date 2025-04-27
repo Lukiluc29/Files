@@ -23,10 +23,19 @@ namespace Files.App.Actions
 		public bool IsExecutable =>
 			context.ShellPage is not null &&
 			context.ShellPage.SlimContentPage is not null &&
-			context.PageType != ContentPageTypes.RecycleBin &&
 			context.PageType != ContentPageTypes.ZipFolder &&
+			context.PageType != ContentPageTypes.Home &&
+			context.PageType != ContentPageTypes.RecycleBin &&
 			context.PageType != ContentPageTypes.ReleaseNotes &&
 			context.PageType != ContentPageTypes.Settings &&
+			context.PageType != ContentPageTypes.Desktop &&
+			context.PageType != ContentPageTypes.Downloads &&
+			context.PageType != ContentPageTypes.Pictures &&
+			context.PageType != ContentPageTypes.Music &&
+			context.PageType != ContentPageTypes.Videos &&
+			context.PageType != ContentPageTypes.Documents &&
+			context.PageType != ContentPageTypes.Network &&
+			context.PageType != ContentPageTypes.ThisPC &&
 			context.HasSelection &&
 			context.SelectedItems.All(x => FileExtensionHelpers.IsCompatibleToSetAsWindowsWallpaper(x.FileExtension));
 

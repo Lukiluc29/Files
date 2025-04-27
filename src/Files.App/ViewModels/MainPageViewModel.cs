@@ -102,14 +102,31 @@ namespace Files.App.ViewModels
 		public bool ShowToolbar =>
 			AppearanceSettingsService.ShowToolbar &&
 			context.PageType is not ContentPageTypes.Home &&
+			context.PageType is not ContentPageTypes.RecycleBin &&
 			context.PageType is not ContentPageTypes.ReleaseNotes &&
-			context.PageType is not ContentPageTypes.Settings;
-		
+			context.PageType is not ContentPageTypes.Settings &&
+			context.PageType is not ContentPageTypes.Desktop &&
+			context.PageType is not ContentPageTypes.Downloads &&
+			context.PageType is not ContentPageTypes.Pictures &&
+			context.PageType is not ContentPageTypes.Music &&
+			context.PageType is not ContentPageTypes.Videos &&
+			context.PageType is not ContentPageTypes.Documents &&
+			context.PageType is not ContentPageTypes.Network &&
+			context.PageType is not ContentPageTypes.ThisPC;
+
 		public bool ShowStatusBar =>
 			context.PageType is not ContentPageTypes.Home &&
+			context.PageType is not ContentPageTypes.RecycleBin &&
 			context.PageType is not ContentPageTypes.ReleaseNotes &&
-			context.PageType is not ContentPageTypes.Settings;
-
+			context.PageType is not ContentPageTypes.Settings &&
+			context.PageType is not ContentPageTypes.Desktop &&
+			context.PageType is not ContentPageTypes.Downloads &&
+			context.PageType is not ContentPageTypes.Pictures &&
+			context.PageType is not ContentPageTypes.Music &&
+			context.PageType is not ContentPageTypes.Videos &&
+			context.PageType is not ContentPageTypes.Documents &&
+			context.PageType is not ContentPageTypes.Network &&
+			context.PageType is not ContentPageTypes.ThisPC;
 
 		// Commands
 

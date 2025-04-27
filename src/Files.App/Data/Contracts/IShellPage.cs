@@ -65,11 +65,61 @@ namespace Files.App.Data.Contracts
 		/// Navigates to the home page
 		/// </summary>
 		public void NavigateHome();
-		
+
+		/// <summary>
+		/// Navigates to the recycle bin page
+		/// </summary>
+		public void NavigateToRecycleBin();
+
 		/// <summary>
 		/// Navigates to the release notes page
 		/// </summary>
 		public void NavigateToReleaseNotes();
+
+		/// <summary>
+		/// Navigates to the settings page
+		/// </summary>
+		public void NavigateToSettings();
+
+		/// <summary>
+		/// Navigates to the desktop page
+		/// </summary>
+		public void NavigateToDesktop();
+
+		/// <summary>
+		/// Navigates to the downloads page
+		/// </summary>
+		public void NavigateToDownloads();
+
+		/// <summary>
+		/// Navigates to the pictures page
+		/// </summary>
+		public void NavigateToPictures();
+
+		/// <summary>
+		/// Navigates to the music page
+		/// </summary>
+		public void NavigateToMusic();
+
+		/// <summary>
+		/// Navigates to the videos page
+		/// </summary>
+		public void NavigateToVideos();
+
+		/// <summary>
+		/// Navigates to the documents page
+		/// </summary>
+		public void NavigateToDocuments();
+
+		/// <summary>
+		/// Navigates to the network folder page
+		/// </summary>
+		public void NavigateToNetwork();
+
+		/// <summary>
+		/// Navigates to the my computer page
+		/// </summary>
+		public void NavigateToThisPC();
 
 		void NavigateWithArguments(Type sourcePageType, NavigationArguments navArgs);
 

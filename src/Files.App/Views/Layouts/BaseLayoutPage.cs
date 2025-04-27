@@ -441,8 +441,17 @@ namespace Files.App.Views.Layouts
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeZipFolder = ZipStorageFolder.IsZipPath(workingDir);
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeLibrary = LibraryManager.IsLibraryPath(workingDir);
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeSearchResults = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeNotHome = false;
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeReleaseNotes = false;
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeSettings = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeDesktop = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeDownloads = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypePictures = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeMusic = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeVideos = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeDocuments = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeNetwork = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeThisPC = false;
 				ParentShellPageInstance.ToolbarViewModel.PathControlDisplayText = navigationArguments.NavPathParam;
 
 				if (ParentShellPageInstance.InstanceViewModel.FolderSettings.DirectorySortOption == SortOption.Path)
@@ -476,8 +485,17 @@ namespace Files.App.Views.Layouts
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeZipFolder = ZipStorageFolder.IsZipPath(workingDir);
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeLibrary = LibraryManager.IsLibraryPath(workingDir);
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeSearchResults = true;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeNotHome = false;
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeReleaseNotes = false;
 				ParentShellPageInstance.InstanceViewModel.IsPageTypeSettings = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeDesktop = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeDownloads = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypePictures = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeMusic = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeVideos = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeDocuments = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeNetwork = false;
+				ParentShellPageInstance.InstanceViewModel.IsPageTypeThisPC = false;
 
 				if (!navigationArguments.IsLayoutSwitch)
 				{

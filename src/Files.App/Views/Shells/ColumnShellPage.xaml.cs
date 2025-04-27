@@ -184,10 +184,60 @@ namespace Files.App.Views.Shells
 		{
 			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateHome();
 		}
-		
+
+		public override void NavigateToRecycleBin()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToRecycleBin();
+		}
+
 		public override void NavigateToReleaseNotes()
 		{
 			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToReleaseNotes();
+		}
+
+		public override void NavigateToSettings()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToSettings();
+		}
+
+		public override void NavigateToDesktop()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToDesktop();
+		}
+
+		public override void NavigateToDownloads()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToDownloads();
+		}
+
+		public override void NavigateToPictures()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToPictures();
+		}
+
+		public override void NavigateToMusic()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToMusic();
+		}
+
+		public override void NavigateToVideos()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToVideos();
+		}
+
+		public override void NavigateToDocuments()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToDocuments();
+		}
+
+		public override void NavigateToNetwork()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToNetwork();
+		}
+
+		public override void NavigateToThisPC()
+		{
+			this.FindAscendant<ColumnsLayoutPage>()?.ParentShellPageInstance?.NavigateToThisPC();
 		}
 
 		public override Task WhenIsCurrent()

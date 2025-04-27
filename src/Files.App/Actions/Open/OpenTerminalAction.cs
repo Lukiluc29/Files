@@ -96,7 +96,7 @@ namespace Files.App.Actions
 
 		private bool GetIsExecutable()
 		{
-			if (context.PageType is ContentPageTypes.None or ContentPageTypes.Home or ContentPageTypes.RecycleBin or ContentPageTypes.ZipFolder or ContentPageTypes.ReleaseNotes or ContentPageTypes.Settings)
+			if (context.PageType is ContentPageTypes.None or ContentPageTypes.ZipFolder or ContentPageTypes.Home or ContentPageTypes.RecycleBin or ContentPageTypes.SearchResults or ContentPageTypes.ReleaseNotes or ContentPageTypes.Settings or ContentPageTypes.Desktop or ContentPageTypes.Downloads or ContentPageTypes.Pictures or ContentPageTypes.Music or ContentPageTypes.Videos or ContentPageTypes.Documents or ContentPageTypes.Network or ContentPageTypes.ThisPC)
 				return false;
 
 			var isFolderNull = context.Folder is null;

@@ -1117,8 +1117,17 @@ namespace Files.App.ViewModels.UserControls
 				else if (isPathNull ||
 					(hasStorageItems && storageItems.AreItemsAlreadyInFolder(locationItem.Path)) ||
 					locationItem.Path.StartsWith("Home", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("RecycleBin", StringComparison.OrdinalIgnoreCase) ||
 					locationItem.Path.StartsWith("ReleaseNotes", StringComparison.OrdinalIgnoreCase) ||
-					locationItem.Path.StartsWith("Settings", StringComparison.OrdinalIgnoreCase))
+					locationItem.Path.StartsWith("Settings", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Desktop", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Downloads", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Pictures", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Music", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Videos", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Documents", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("Network", StringComparison.OrdinalIgnoreCase) ||
+					locationItem.Path.StartsWith("ThisPC", StringComparison.OrdinalIgnoreCase))
 				{
 					rawEvent.AcceptedOperation = DataPackageOperation.None;
 				}

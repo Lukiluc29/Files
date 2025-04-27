@@ -6,9 +6,11 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
 using System.IO;
+using System.Windows.Media;
 using Windows.Storage;
 using Windows.Storage.Search;
 using Windows.System;
+using static Vanara.PInvoke.Kernel32;
 
 namespace Files.App.Helpers
 {
@@ -157,11 +159,28 @@ namespace Files.App.Helpers
 			ImageSource? imageSource;
 			if (string.IsNullOrEmpty(path) || path == "Home")
 				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "RecycleBin")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
 			else if (path == "ReleaseNotes")
 				imageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
-			// TODO add settings page
-			//else if (path == "Settings")
-			//	imageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			else if (path == "Settings")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Desktop")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Downloads")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Pictures")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Music")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Videos")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Documents")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "Network")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
+			else if (path == "ThisPC")
+				imageSource = new BitmapImage(new Uri(Constants.FluentIconsPaths.HomeIcon));
 			else if (WSLDistroManager.TryGetDistro(path, out WslDistroItem? wslDistro) && path.Equals(wslDistro.Path))
 				imageSource = new BitmapImage(wslDistro.Icon);
 			else
@@ -202,12 +221,56 @@ namespace Files.App.Helpers
 				tabLocationHeader = Strings.ReleaseNotes.GetLocalizedResource();
 				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
 			}
-			// TODO add settings page
-			//else if (currentPath == "Settings")
-			//{ 
-			//	tabLocationHeader = Strings.Settings.GetLocalizedResource();
-			//	iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
-			//}
+			else if (currentPath == "RecycleBin")
+			{
+				tabLocationHeader = Strings.RecycleBin.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Settings")
+			{
+				tabLocationHeader = Strings.Settings.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Desktop")
+			{
+				tabLocationHeader = Strings.Desktop.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Downloads")
+			{
+				tabLocationHeader = Strings.Downloads.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Pictures")
+			{
+				tabLocationHeader = Strings.Pictures.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Music")
+			{
+				tabLocationHeader = Strings.Music.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Videos")
+			{
+				tabLocationHeader = Strings.Videos.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Documents")
+			{
+				tabLocationHeader = Strings.Documents.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "Network")
+			{
+				tabLocationHeader = Strings.Network.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
+			else if (currentPath == "ThisPC")
+			{
+				tabLocationHeader = Strings.ThisPC.GetLocalizedResource();
+				iconSource.ImageSource = new BitmapImage(new Uri(AppLifecycleHelper.AppIconPath));
+			}
 			else if (currentPath.Equals(Constants.UserEnvironmentPaths.DesktopPath, StringComparison.OrdinalIgnoreCase))
 				tabLocationHeader = Strings.Desktop.GetLocalizedResource();
 			else if (currentPath.Equals(Constants.UserEnvironmentPaths.DownloadsPath, StringComparison.OrdinalIgnoreCase))

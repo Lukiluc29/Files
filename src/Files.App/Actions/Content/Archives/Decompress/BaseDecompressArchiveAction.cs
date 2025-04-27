@@ -41,10 +41,19 @@ namespace Files.App.Actions
 		protected bool IsContextPageTypeAdaptedToCommand()
 		{
 			return
-				context.PageType != ContentPageTypes.RecycleBin &&
 				context.PageType != ContentPageTypes.ZipFolder &&
+				context.PageType != ContentPageTypes.Home &&
+				context.PageType != ContentPageTypes.RecycleBin &&
 				context.PageType != ContentPageTypes.ReleaseNotes &&
 				context.PageType != ContentPageTypes.Settings &&
+				context.PageType != ContentPageTypes.Desktop &&
+				context.PageType != ContentPageTypes.Downloads &&
+				context.PageType != ContentPageTypes.Pictures &&
+				context.PageType != ContentPageTypes.Music &&
+				context.PageType != ContentPageTypes.Videos &&
+				context.PageType != ContentPageTypes.Documents &&
+				context.PageType != ContentPageTypes.Network &&
+				context.PageType != ContentPageTypes.ThisPC &&
 				context.PageType != ContentPageTypes.None;
 		}
 

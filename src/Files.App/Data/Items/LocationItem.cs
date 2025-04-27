@@ -49,8 +49,17 @@ namespace Files.App.Data.Items
 					Path.StartsWith("shell:", StringComparison.OrdinalIgnoreCase) ||
 					Path.EndsWith(ShellLibraryItem.EXTENSION, StringComparison.OrdinalIgnoreCase) ||
 					Path == "Home" ||
+					Path == "RecycleBin" ||
 					Path == "ReleaseNotes" ||
-					Path == "Settings"
+					Path == "Settings" ||
+					Path == "Desktop" ||
+					Path == "Downloads" ||
+					Path == "Pictures" ||
+					Path == "Music" ||
+					Path == "Videos" ||
+					Path == "Documents" ||
+					Path == "Network" ||
+					Path == "ThisPC"
 					? Text
 					: Path;
 			}

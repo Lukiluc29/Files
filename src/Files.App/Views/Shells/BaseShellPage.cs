@@ -588,8 +588,17 @@ namespace Files.App.Views.Shells
 			{
 				if (entry.Parameter is NavigationArguments args &&
 					args.NavPathParam is not null and not "Home" &&
+					args.NavPathParam is not null and not "RecycleBin" &&
 					args.NavPathParam is not null and not "ReleaseNotes" &&
-					args.NavPathParam is not null and not "Settings")
+					args.NavPathParam is not null and not "Settings" &&
+					args.NavPathParam is not null and not "Desktop" &&
+					args.NavPathParam is not null and not "Downloads" &&
+					args.NavPathParam is not null and not "Pictures" &&
+					args.NavPathParam is not null and not "Music" &&
+					args.NavPathParam is not null and not "Videos" &&
+					args.NavPathParam is not null and not "Documents" &&
+					args.NavPathParam is not null and not "NetworkFolder" &&
+					args.NavPathParam is not null and not "MyComputer")
 				{
 					var correctPageType = FolderSettings.GetLayoutType(args.NavPathParam, false);
 					if (!entry.SourcePageType.Equals(correctPageType))
@@ -606,8 +615,17 @@ namespace Files.App.Views.Shells
 			{
 				if (entry.Parameter is NavigationArguments args &&
 					args.NavPathParam is not null and not "Home" &&
+					args.NavPathParam is not null and not "RecycleBin" &&
 					args.NavPathParam is not null and not "ReleaseNotes" &&
-					args.NavPathParam is not null and not "Settings")
+					args.NavPathParam is not null and not "Settings" &&
+					args.NavPathParam is not null and not "Desktop" &&
+					args.NavPathParam is not null and not "Downloads" &&
+					args.NavPathParam is not null and not "Pictures" &&
+					args.NavPathParam is not null and not "Music" &&
+					args.NavPathParam is not null and not "Videos" &&
+					args.NavPathParam is not null and not "Documents" &&
+					args.NavPathParam is not null and not "NetworkFolder" &&
+					args.NavPathParam is not null and not "MyComputer")
 				{
 					var correctPageType = FolderSettings.GetLayoutType(args.NavPathParam, false);
 					if (!entry.SourcePageType.Equals(correctPageType))
@@ -806,7 +824,27 @@ namespace Files.App.Views.Shells
 
 		public abstract void NavigateHome();
 
+		public abstract void NavigateToRecycleBin();
+
 		public abstract void NavigateToReleaseNotes();
+
+		public abstract void NavigateToSettings();
+
+		public abstract void NavigateToDesktop();
+
+		public abstract void NavigateToDownloads();
+
+		public abstract void NavigateToPictures();
+
+		public abstract void NavigateToMusic();
+
+		public abstract void NavigateToVideos();
+
+		public abstract void NavigateToDocuments();
+
+		public abstract void NavigateToNetwork();
+
+		public abstract void NavigateToThisPC();
 
 		public abstract void NavigateToPath(string? navigationPath, Type? sourcePageType, NavigationArguments? navArgs = null);
 

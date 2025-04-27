@@ -23,6 +23,7 @@ using DispatcherQueue = Microsoft.UI.Dispatching.DispatcherQueue;
 using FileAttributes = System.IO.FileAttributes;
 using ByteSize = ByteSizeLib.ByteSize;
 using Windows.Win32.System.SystemServices;
+using static Vanara.PInvoke.Kernel32;
 
 namespace Files.App.ViewModels
 {
@@ -197,7 +198,7 @@ namespace Files.App.ViewModels
 			else if (!Path.IsPathRooted(WorkingDirectory) || Path.GetPathRoot(WorkingDirectory) != Path.GetPathRoot(value))
 				workingRoot = await FilesystemTasks.Wrap(() => DriveHelpers.GetRootFromPathAsync(value));
 
-			if (value == "Home" || value == "ReleaseNotes" || value == "Settings")
+			if (value == "Home" || value == "RecycleBin" || value == "ReleaseNotes" || value == "Settings" || value == "Desktop" || value == "Downloads" || value == "Pictures" || value == "Music" || value == "Videos" || value == "Documents" || value == "NetworkFolder" || value == "MyComputer")
 				currentStorageFolder = null;
 			else
 				_ = Task.Run(() => jumpListService.AddFolderAsync(value));
@@ -636,11 +637,10 @@ namespace Files.App.ViewModels
 		{
 			await dispatcherQueue.EnqueueOrInvokeAsync(() =>
 			{
-				if (WorkingDirectory != "Home" && WorkingDirectory != "ReleaseNotes" && WorkingDirectory != "Settings")
+				if (WorkingDirectory != "Home" && WorkingDirectory != "RecycleBin" && WorkingDirectory != "ReleaseNotes" && WorkingDirectory != "Settings" && WorkingDirectory != "Desktop" && WorkingDirectory != "Downloads" && WorkingDirectory != "Pictures" && WorkingDirectory != "Music" && WorkingDirectory != "Videos" && WorkingDirectory != "Documents" && WorkingDirectory != "NetworkFolder" && WorkingDirectory != "MyComputer")
 					RefreshItems(null);
 			});
 		}
-
 		private async void UserSettingsService_OnSettingChangedEvent(object? sender, SettingChangedEventArgs e)
 		{
 			switch (e.SettingName)
@@ -657,7 +657,7 @@ namespace Files.App.ViewModels
 				case nameof(UserSettingsService.FoldersSettingsService.SizeUnitFormat):
 					await dispatcherQueue.EnqueueOrInvokeAsync(() =>
 					{
-						if (WorkingDirectory != "Home" && WorkingDirectory != "ReleaseNotes" && WorkingDirectory != "Settings")
+						if (WorkingDirectory != "Home" && WorkingDirectory != "RecycleBin" && WorkingDirectory != "ReleaseNotes" && WorkingDirectory != "Settings" && WorkingDirectory != "Desktop" && WorkingDirectory != "Downloads" && WorkingDirectory != "Pictures" && WorkingDirectory != "Music" && WorkingDirectory != "Videos" && WorkingDirectory != "Documents" && WorkingDirectory != "NetworkFolder" && WorkingDirectory != "MyComputer")
 							RefreshItems(null);
 					});
 					break;
@@ -678,9 +678,7 @@ namespace Files.App.ViewModels
 					break;
 			}
 		}
-
 		private bool IsLoadingCancelled { get; set; }
-
 		public void CancelLoadAndClearFiles()
 		{
 			Debug.WriteLine("CancelLoadAndClearFiles");
@@ -696,25 +694,20 @@ namespace Files.App.ViewModels
 			FilesAndFolders.Clear();
 			CancelSearch();
 		}
-
 		public void CancelExtendedPropertiesLoading()
 		{
 			loadPropsCTS.Cancel();
 			loadPropsCTS = new CancellationTokenSource();
 		}
-
 		public void CancelExtendedPropertiesLoadingForItem(ListedItem item)
 		{
 			itemLoadQueue.TryUpdate(item.ItemPath, true, false);
 		}
-
 		private bool IsSearchResults { get; set; }
-
 		public void UpdateEmptyTextType()
 		{
 			EmptyTextType = FilesAndFolders.Count == 0 ? (IsSearchResults ? EmptyTextType.NoSearchResultsFound : EmptyTextType.FolderEmpty) : EmptyTextType.None;
 		}
-
 		public string? FilesAndFoldersFilter { get; set; }
 
 		// Apply changes immediately after manipulating on filesAndFolders completed
@@ -730,12 +723,10 @@ namespace Files.App.ViewModels
 						UpdateEmptyTextType();
 						DirectoryInfoUpdated?.Invoke(this, EventArgs.Empty);
 					}
-
 					if (Win32Helper.IsHasThreadAccessPropertyPresent && dispatcherQueue.HasThreadAccess)
 						ClearDisplay();
 					else
 						await dispatcherQueue.EnqueueOrInvokeAsync(ClearDisplay);
-
 					return;
 				}
 				var filesAndFoldersLocal = filesAndFolders.ToList();
@@ -1909,7 +1900,7 @@ namespace Files.App.ViewModels
 
 		public void CheckForBackgroundImage()
 		{
-			if (WorkingDirectory == "Home" || WorkingDirectory == "ReleaseNotes" || WorkingDirectory != "Settings")
+			if (WorkingDirectory != "Home" && WorkingDirectory != "RecycleBin" && WorkingDirectory != "ReleaseNotes" && WorkingDirectory != "Settings" && WorkingDirectory != "Desktop" && WorkingDirectory != "Downloads" && WorkingDirectory != "Pictures" && WorkingDirectory != "Music" && WorkingDirectory != "Videos" && WorkingDirectory != "Documents" && WorkingDirectory != "NetworkFolder" && WorkingDirectory != "MyComputer")
 			{
 				FolderBackgroundImageSource = null;
 				return;

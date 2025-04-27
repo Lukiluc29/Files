@@ -52,7 +52,7 @@ namespace Files.App.Data.Models
 				OnPropertyChanged(nameof(CanCopyPathInPage));
 			}
 		}
-		
+
 		private bool isPageTypeReleaseNotes = false;
 		public bool IsPageTypeReleaseNotes
 		{
@@ -64,7 +64,7 @@ namespace Files.App.Data.Models
 				OnPropertyChanged(nameof(CanCopyPathInPage));
 			}
 		}
-		
+
 		private bool isPageTypeSettings = false;
 		public bool IsPageTypeSettings
 		{
@@ -72,6 +72,102 @@ namespace Files.App.Data.Models
 			set
 			{
 				SetProperty(ref isPageTypeSettings, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeDesktop = false;
+		public bool IsPageTypeDesktop
+		{
+			get => isPageTypeDesktop;
+			set
+			{
+				SetProperty(ref isPageTypeDesktop, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeDownloads = false;
+		public bool IsPageTypeDownloads
+		{
+			get => isPageTypeDownloads;
+			set
+			{
+				SetProperty(ref isPageTypeDownloads, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypePictures = false;
+		public bool IsPageTypePictures
+		{
+			get => isPageTypePictures;
+			set
+			{
+				SetProperty(ref isPageTypePictures, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeMusic = false;
+		public bool IsPageTypeMusic
+		{
+			get => isPageTypeMusic;
+			set
+			{
+				SetProperty(ref isPageTypeMusic, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeVideos = false;
+		public bool IsPageTypeVideos
+		{
+			get => isPageTypeVideos;
+			set
+			{
+				SetProperty(ref isPageTypeVideos, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeDocuments = false;
+		public bool IsPageTypeDocuments
+		{
+			get => isPageTypeDocuments;
+			set
+			{
+				SetProperty(ref isPageTypeDocuments, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeNetwork = false;
+		public bool IsPageTypeNetwork
+		{
+			get => isPageTypeNetwork;
+			set
+			{
+				SetProperty(ref isPageTypeNetwork, value);
+				OnPropertyChanged(nameof(CanCreateFileInPage));
+				OnPropertyChanged(nameof(CanCopyPathInPage));
+			}
+		}
+
+		private bool isPageTypeThisPC = false;
+		public bool IsPageTypeThisPC
+		{
+			get => isPageTypeThisPC;
+			set
+			{
+				SetProperty(ref isPageTypeThisPC, value);
 				OnPropertyChanged(nameof(CanCreateFileInPage));
 				OnPropertyChanged(nameof(CanCopyPathInPage));
 			}
@@ -148,12 +244,13 @@ namespace Files.App.Data.Models
 
 		public bool CanCopyPathInPage
 		{
-			get => !isPageTypeMtpDevice && !isPageTypeRecycleBin && isPageTypeNotHome && !isPageTypeSearchResults && !IsPageTypeReleaseNotes && !IsPageTypeSettings;
+			get => !isPageTypeMtpDevice && !isPageTypeRecycleBin && isPageTypeNotHome && !isPageTypeSearchResults && !isPageTypeFtp && !isPageTypeZipFolder && !IsPageTypeReleaseNotes && !IsPageTypeSettings && !isPageTypeDesktop && !isPageTypeDownloads && !isPageTypePictures && !isPageTypeMusic && !isPageTypeVideos && !isPageTypeDocuments && !isPageTypeNetwork && !isPageTypeThisPC;
 		}
 
 		public bool CanCreateFileInPage
 		{
-			get => !isPageTypeMtpDevice && !isPageTypeRecycleBin && isPageTypeNotHome && !isPageTypeSearchResults && !isPageTypeFtp && !isPageTypeZipFolder && !IsPageTypeReleaseNotes && !IsPageTypeSettings;
+			get => !isPageTypeMtpDevice && !isPageTypeRecycleBin && isPageTypeNotHome && !isPageTypeSearchResults && !isPageTypeFtp && !isPageTypeZipFolder && !IsPageTypeReleaseNotes && !IsPageTypeSettings && !isPageTypeDesktop && !isPageTypeDownloads && !isPageTypePictures && !isPageTypeMusic && !isPageTypeVideos && !isPageTypeDocuments && !isPageTypeNetwork && !isPageTypeThisPC;
+
 		}
 
 		public bool CanTagFilesInPage

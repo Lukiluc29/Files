@@ -6,6 +6,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System.IO;
+using System.Windows.Documents;
 using Windows.System;
 
 namespace Files.App.Views.Shells
@@ -89,6 +90,16 @@ namespace Files.App.Views.Shells
 						AssociatedTabInstance = this
 					}, new SuppressNavigationTransitionInfo());
 			}
+			else if (NavParams.NavPath == "RecycleBin")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(RecycleBinPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
 			else if (NavParams.NavPath == "ReleaseNotes")
 			{
 				ItemDisplayFrame.Navigate(
@@ -99,17 +110,97 @@ namespace Files.App.Views.Shells
 						AssociatedTabInstance = this
 					}, new SuppressNavigationTransitionInfo());
 			}
-			// TODO add settings page
-			//else if (NavParams.NavPath == "Settings")
-			//{
-			//	ItemDisplayFrame.Navigate(
-			//		typeof(ReleaseNotesPage),
-			//		new NavigationArguments()
-			//		{
-			//			NavPathParam = NavParams?.NavPath,
-			//			AssociatedTabInstance = this
-			//		}, new SuppressNavigationTransitionInfo());
-			//}
+			else if (NavParams.NavPath == "Settings")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(SettingsPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Desktop")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(DesktopPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Downloads")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(DownloadsPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Pictures")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(PicturesPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Music")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(MusicPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Videos")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(VideosPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Documents")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(DocumentsPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "Network")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(NetworkFolderPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+			else if (NavParams.NavPath == "ThisPC")
+			{
+				ItemDisplayFrame.Navigate(
+					typeof(MyComputerPath),
+					new NavigationArguments()
+					{
+						NavPathParam = NavParams?.NavPath,
+						AssociatedTabInstance = this
+					}, new SuppressNavigationTransitionInfo());
+			}
+
 			else
 			{
 				var isTagSearch = NavParams.NavPath.StartsWith("tag:");
@@ -288,7 +379,19 @@ namespace Files.App.Views.Shells
 				},
 				new SuppressNavigationTransitionInfo());
 		}
-		
+
+		public override void NavigateToRecycleBin()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(RecycleBinPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "RecycleBin",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
 		public override void NavigateToReleaseNotes()
 		{
 			ItemDisplayFrame.Navigate(
@@ -296,6 +399,114 @@ namespace Files.App.Views.Shells
 				new NavigationArguments()
 				{
 					NavPathParam = "ReleaseNotes",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToSettings()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(SettingsPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Settings",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToDesktop()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(DesktopPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Desktop",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToDownloads()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(DownloadsPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Downloads",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToPictures()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(PicturesPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Pictures",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToMusic()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(MusicPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Music",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToVideos()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(VideosPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Videos",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToDocuments()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(DocumentsPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Documents",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToNetwork()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(NetworkFolderPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "Network",
+					AssociatedTabInstance = this
+				},
+				new SuppressNavigationTransitionInfo());
+		}
+
+		public override void NavigateToThisPC()
+		{
+			ItemDisplayFrame.Navigate(
+				typeof(MyComputerPath),
+				new NavigationArguments()
+				{
+					NavPathParam = "ThisPC",
 					AssociatedTabInstance = this
 				},
 				new SuppressNavigationTransitionInfo());

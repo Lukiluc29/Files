@@ -372,8 +372,17 @@ namespace Files.App.ViewModels.UserControls
 		{
 			if (((StackPanel)sender).DataContext is not PathBoxItem pathBoxItem ||
 				pathBoxItem.Path == "Home" ||
+				pathBoxItem.Path == "RecycleBin" ||
 				pathBoxItem.Path == "ReleaseNotes" ||
-				pathBoxItem.Path == "Settings")
+				pathBoxItem.Path == "Settings" ||
+				pathBoxItem.Path == "Desktop" ||
+				pathBoxItem.Path == "Downloads" ||
+				pathBoxItem.Path == "Pictures" ||
+				pathBoxItem.Path == "Music" ||
+				pathBoxItem.Path == "Videos" ||
+				pathBoxItem.Path == "Documents" ||
+				pathBoxItem.Path == "NetworkFolder" ||
+				pathBoxItem.Path == "MyComputer")
 			{
 				return;
 			}
@@ -395,8 +404,17 @@ namespace Files.App.ViewModels.UserControls
 
 			if (((StackPanel)sender).DataContext is not PathBoxItem pathBoxItem ||
 				pathBoxItem.Path == "Home" ||
+				pathBoxItem.Path == "RecycleBin" ||
 				pathBoxItem.Path == "ReleaseNotes" ||
-				pathBoxItem.Path == "Settings")
+				pathBoxItem.Path == "Settings" ||
+				pathBoxItem.Path == "Desktop" ||
+				pathBoxItem.Path == "Downloads" ||
+				pathBoxItem.Path == "Pictures" ||
+				pathBoxItem.Path == "Music" ||
+				pathBoxItem.Path == "Videos" ||
+				pathBoxItem.Path == "Documents" ||
+				pathBoxItem.Path == "NetworkFolder" ||
+				pathBoxItem.Path == "MyComputer")
 			{
 				return;
 			}
@@ -426,8 +444,17 @@ namespace Files.App.ViewModels.UserControls
 			if (IsSingleItemOverride ||
 				((StackPanel)sender).DataContext is not PathBoxItem pathBoxItem ||
 				pathBoxItem.Path == "Home" ||
+				pathBoxItem.Path == "RecycleBin" ||
 				pathBoxItem.Path == "ReleaseNotes" ||
-				pathBoxItem.Path == "Settings")
+				pathBoxItem.Path == "Settings" ||
+				pathBoxItem.Path == "Desktop" ||
+				pathBoxItem.Path == "Downloads" ||
+				pathBoxItem.Path == "Pictures" ||
+				pathBoxItem.Path == "Music" ||
+				pathBoxItem.Path == "Videos" ||
+				pathBoxItem.Path == "Documents" ||
+				pathBoxItem.Path == "NetworkFolder" ||
+				pathBoxItem.Path == "MyComputer")
 			{
 				return;
 			}
@@ -788,17 +815,62 @@ namespace Files.App.ViewModels.UserControls
 					SavePathToHistory("Home");
 					shellPage.NavigateHome();
 				}
+				else if (normalizedInput.Equals("RecycleBin", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.RecycleBin.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("RecycleBin");
+					shellPage.NavigateToRecycleBin();
+				}
 				else if (normalizedInput.Equals("ReleaseNotes", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.ReleaseNotes.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
 				{
 					SavePathToHistory("ReleaseNotes");
 					shellPage.NavigateToReleaseNotes();
 				}
-				// TODO add settings page
-				//else if (normalizedInput.Equals("Settings", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Settings.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
-				//{
-				//	SavePathToHistory("Settings");
-				//	shellPage.NavigateToReleaseNotes();
-				//}
+				else if (normalizedInput.Equals("Settings", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Settings.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Settings");
+					shellPage.NavigateToSettings();
+				}
+				else if (normalizedInput.Equals("Desktop", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Desktop.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Desktop");
+					shellPage.NavigateToDesktop();
+				}
+				else if (normalizedInput.Equals("Downloads", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Downloads.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Downloads");
+					shellPage.NavigateToDownloads();
+				}
+				else if (normalizedInput.Equals("Pictures", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Pictures.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Pictures");
+					shellPage.NavigateToPictures();
+				}
+				else if (normalizedInput.Equals("Music", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Music.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Music");
+					shellPage.NavigateToMusic();
+				}
+				else if (normalizedInput.Equals("Videos", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Videos.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Videos");
+					shellPage.NavigateToVideos();
+				}
+				else if (normalizedInput.Equals("Documents", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Documents.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Documents");
+					shellPage.NavigateToDocuments();
+				}
+				else if (normalizedInput.Equals("Network", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.Network.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("Network");
+					shellPage.NavigateToNetwork();
+				}
+				else if (normalizedInput.Equals("ThisPC", StringComparison.OrdinalIgnoreCase) || normalizedInput.Equals(Strings.ThisPC.GetLocalizedResource(), StringComparison.OrdinalIgnoreCase))
+				{
+					SavePathToHistory("ThisPC");
+					shellPage.NavigateToThisPC();
+				}
+
 				else
 				{
 					normalizedInput = StorageFileExtensions.GetResolvedPath(normalizedInput, isFtp);
@@ -915,7 +987,7 @@ namespace Files.App.ViewModels.UserControls
 						IsCommandPaletteOpen = false;
 						var currentInput = sender.Text;
 
-						if (string.IsNullOrWhiteSpace(currentInput) || currentInput == "Home" || currentInput == "ReleaseNotes" || currentInput == "Settings")
+						if (string.IsNullOrWhiteSpace(currentInput) || currentInput == "Home" || currentInput == "RecycleBin" || currentInput == "ReleaseNotes" || currentInput == "Settings" || currentInput == "Desktop" || currentInput == "Downloads" || currentInput == "Pictures" || currentInput == "Music" || currentInput == "Videos" || currentInput == "Documents" || currentInput == "NetworkFolder" || currentInput == "MyComputer")
 						{
 							// Load previously entered path
 							var pathHistoryList = UserSettingsService.GeneralSettingsService.PathHistoryList;

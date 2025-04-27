@@ -44,6 +44,14 @@ namespace Files.App.Views
 			AppInstance.InstanceViewModel.IsGitRepository = false;
 			AppInstance.InstanceViewModel.IsPageTypeReleaseNotes = false;
 			AppInstance.InstanceViewModel.IsPageTypeSettings = false;
+			AppInstance.InstanceViewModel.IsPageTypeDesktop = false;
+			AppInstance.InstanceViewModel.IsPageTypeDownloads = false;
+			AppInstance.InstanceViewModel.IsPageTypePictures = false;
+			AppInstance.InstanceViewModel.IsPageTypeMusic = false;
+			AppInstance.InstanceViewModel.IsPageTypeVideos = false;
+			AppInstance.InstanceViewModel.IsPageTypeDocuments = false;
+			AppInstance.InstanceViewModel.IsPageTypeNetwork = false;
+			AppInstance.InstanceViewModel.IsPageTypeThisPC = false;
 			AppInstance.ToolbarViewModel.CanRefresh = true;
 			AppInstance.ToolbarViewModel.CanGoBack = AppInstance.CanNavigateBackward;
 			AppInstance.ToolbarViewModel.CanGoForward = AppInstance.CanNavigateForward;

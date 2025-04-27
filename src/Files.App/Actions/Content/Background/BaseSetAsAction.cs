@@ -19,10 +19,19 @@ namespace Files.App.Actions
 
 		public virtual bool IsExecutable =>
 			ContentPageContext.ShellPage is not null &&
-			ContentPageContext.PageType != ContentPageTypes.RecycleBin &&
 			ContentPageContext.PageType != ContentPageTypes.ZipFolder &&
+			ContentPageContext.PageType != ContentPageTypes.Home &&
+			ContentPageContext.PageType != ContentPageTypes.RecycleBin &&
 			ContentPageContext.PageType != ContentPageTypes.ReleaseNotes &&
 			ContentPageContext.PageType != ContentPageTypes.Settings &&
+			ContentPageContext.PageType != ContentPageTypes.Desktop &&
+			ContentPageContext.PageType != ContentPageTypes.Downloads &&
+			ContentPageContext.PageType != ContentPageTypes.Pictures &&
+			ContentPageContext.PageType != ContentPageTypes.Music &&
+			ContentPageContext.PageType != ContentPageTypes.Videos &&
+			ContentPageContext.PageType != ContentPageTypes.Documents &&
+			ContentPageContext.PageType != ContentPageTypes.Network &&
+			ContentPageContext.PageType != ContentPageTypes.ThisPC &&
 			(ContentPageContext.ShellPage?.SlimContentPage?.SelectedItemsPropertiesViewModel?.IsCompatibleToSetAsWindowsWallpaper ?? false);
 
 		public BaseSetAsAction()
